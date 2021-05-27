@@ -1,10 +1,16 @@
 import React from "react";
+import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import logo from "./image/logo.png";
 
 const App = () => {
   return (
-    <div>
-      <h1>Test application</h1>
-    </div>
+    <Container maxWidth="lg">
+      <AppBar position="static" color="inherit">
+        <Typography variant="h4" align="left">
+          <img src={logo} alt="logo" height="65" />
+        </Typography>
+      </AppBar>
+    </Container>
   );
 };
 
