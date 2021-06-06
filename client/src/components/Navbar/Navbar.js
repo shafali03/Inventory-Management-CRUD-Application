@@ -39,7 +39,13 @@ const Navbar = () => {
             </Button>
           </div>
         ) : (
-          <Button component={Link} to="/auth" variant="contained" color primary>
+          <Button
+            component={Link}
+            to="/auth"
+            variant="contained"
+            color="primary"
+            style={{ backgroundColor: "#11b04c" }}
+          >
             Sign In
           </Button>
         )}
