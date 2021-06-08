@@ -1,11 +1,12 @@
 import { AUTH, LOGOUT } from "../constants/actionTypes";
 
-const authReducer = (stage, action) => {
+const authReducer = (state = { authData: null }, action) => {
   switch (action.type) {
     case AUTH:
-      console.log(action?.date);
+      console.log(action?.data);
+      return state;
     default:
-      break;
+      return state;
   }
 };
 
