@@ -19,6 +19,7 @@ import { deletePost, likePost } from "../../../actions/posts";
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   return (
     <Card className={classes.card}>
@@ -67,13 +68,16 @@ const Post = ({ post, setCurrentId }) => {
           <ThumbUpAltIcon fontSize="small" />
           &nbsp; Like &nbsp; {post.likeCount}
         </Button>
-        <Button
-          size="small"
-          color="primary"
-          onClick={() => dispatch(deletePost(post._id))}
-        >
-          <DeleteIcon fontSize="small" /> Delete
-        </Button>
+        {(user?.result?.googleId === post?.creator ||
+          user?.result?._id === post?.creator) && (
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => dispatch(deletePost(post._id))}
+          >
+            <DeleteIcon fontSize="small" /> Delete
+          </Button>
+        )}
       </CardActions>
     </Card>
   );
