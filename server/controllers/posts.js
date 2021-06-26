@@ -11,6 +11,8 @@ export const getPosts = async (req, res) => {
   }
 };
 
+// CREATE POST
+// ----------------
 export const createPost = async (req, res) => {
   const post = req.body;
 
@@ -29,6 +31,8 @@ export const createPost = async (req, res) => {
   }
 };
 
+// UPDATE POST
+// ----------------
 export const updatePost = async (req, res) => {
   const { id: _id } = req.params;
 
@@ -46,6 +50,8 @@ export const updatePost = async (req, res) => {
   res.json(updatedPost);
 };
 
+// DELETE POST
+// ----------------
 export const deletePost = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id))
@@ -56,6 +62,8 @@ export const deletePost = async (req, res) => {
   res.json({ message: "Post deleted successfully" });
 };
 
+// LIKE POST
+// ----------------
 export const likePost = async (req, res) => {
   const { id } = req.params;
 
