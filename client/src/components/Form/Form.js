@@ -127,7 +127,7 @@ const Form = ({ currentId, setCurrentId }) => {
           onClick={clear}
           fullWidth
           className="btn"
-          style={{ backgroundColor: "#FF0000" }}
+          style={{ backgroundColor: "#FC3C32" }}
         >
           Clear
         </Button>

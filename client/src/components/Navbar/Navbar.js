@@ -58,6 +58,7 @@ const Navbar = () => {
               className={classes.logout}
               color="secondary"
               onClick={logout}
+              style={{ backgroundColor: "#FC3C32" }}
             >
               Logout
             </Button>
