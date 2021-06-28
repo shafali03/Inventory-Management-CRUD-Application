@@ -145,6 +145,7 @@ const Auth = () => {
                 disabled={renderProps.disabled}
                 // startIcon={<Icon />}
                 variant="contained"
+                style={{ backgroundColor: "#F8B616" }}
               >
                 Google Sign In
               </Button>
