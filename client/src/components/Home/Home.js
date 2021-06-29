@@ -39,6 +39,11 @@ const Home = () => {
   const searchPost = () => {
     if (searchTitle.trim() || tags) {
       dispatch(getPostsBySearch({ searchTitle, tags: tags.join(",") }));
+      history.push(
+        `/posts/search?searchQuery=${searchTitle || "none"}&tags=${tags.join(
+          ","
+        )}`
+      );
     } else {
       history.push("/");
     }
