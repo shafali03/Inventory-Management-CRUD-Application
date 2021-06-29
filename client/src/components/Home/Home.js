@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { getPosts } from "../../actions/posts";
 import ChipInput from "material-ui-chip-input";
 import {
   Container,
@@ -12,6 +11,7 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
+import { getPosts, getPostsBySearch } from "../../actions/posts";
 import Paginate from "../Pagination/Pagination";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
@@ -37,8 +37,8 @@ const Home = () => {
   }, [currentId, dispatch]);
 
   const searchPost = () => {
-    if (searchTitle.trim()) {
-      // dispatch => fetch search post
+    if (searchTitle.trim() || tags) {
+      dispatch(getPostsBySearch({ searchTitle, tags: tags.join(",") }));
     } else {
       history.push("/");
     }
