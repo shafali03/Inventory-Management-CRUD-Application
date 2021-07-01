@@ -12,7 +12,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
-import Paginate from "../Pagination/Pagination";
+import Pagination from "../Pagination/Pagination";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 import useStyles from "./styles";
@@ -31,10 +31,6 @@ const Home = () => {
   const classes = useStyles();
   const [searchTitle, setSearchTitle] = useState("");
   const [tags, setTags] = useState([]);
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
 
   const searchPost = () => {
     if (searchTitle.trim() || tags) {
@@ -108,7 +104,7 @@ const Home = () => {
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             <Paper elevation={6}>
-              <Paginate />
+              <Pagination page={page} />
             </Paper>
           </Grid>
         </Grid>
