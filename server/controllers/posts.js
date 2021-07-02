@@ -2,10 +2,28 @@ import PostMessage from "../models/postMessage.js";
 import mongoose from "mongoose";
 
 export const getPosts = async (req, res) => {
-  try {
-    const postMessage = await PostMessage.find();
+  const { page } = req.query;
 
-    res.status(200).json(postMessage);
+  try {
+    const LIMIT = 8;
+    // Getting the starting index of every page
+    const startIndex = (Number(page) - 1) * LIMIT;
+    // pacific number of pages
+    const total = await PostMessage.countDocuments({});
+
+    const posts = await PostMessage.find()
+    // displaying the newest post
+      .sort({ _id: -1 })
+      .limit(LIMIT)
+      .skip(startIndex);
+
+    res
+      .status(200)
+      .json({
+        data: posts,
+        currentPage: Number(page),
+        numberOfPages: Math.ceil(total / LIMIT),
+      });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
