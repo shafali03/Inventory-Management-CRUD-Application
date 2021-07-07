@@ -77,14 +77,7 @@ const Post = ({ post, setCurrentId }) => {
         </CardContent>
       </ButtonBase>
       <CardActions className={classes.cardActions}>
-        <Button
-          size="small"
-          color="primary"
-          // onClick={() => dispatch(likePost(post._id))}
-        >
-          {/* <ThumbUpAltIcon fontSize="small" /> */}
-          {/* &nbsp; Like &nbsp; {post.likeCount} */}
-        </Button>
+        <Button size="small" color="primary"></Button>
         {(user?.result?.googleId === post?.creator ||
           user?.result?._id === post?.creator) && (
           <Button
