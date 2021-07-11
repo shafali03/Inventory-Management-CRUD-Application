@@ -1,7 +1,5 @@
 # Inventory Management
 
-# Inventory Management
-
 Front End
 
 ```
